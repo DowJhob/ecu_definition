@@ -1,8 +1,8 @@
 <rom>
 	<romid>
-		<xmlid>C7280011</xmlid>
+		<xmlid>C7280010</xmlid>
 		<internalidaddress>222</internalidaddress>
-		<internalidhex>C7280011</internalidhex>
+		<internalidhex>C7280010</internalidhex>
 		<make>Mitsubishi</make>
 		<market>EDM</market>
 		<model>Outlander</model>
@@ -13,7 +13,7 @@
 		<memmodel>M32176F4</memmodel>
 		<checksummodule>mitsucan</checksummodule>
 	</romid>
-
+	
 	<notes>
 		2015/02/28 [Rcus] This description was developed in early 2014 for group of enthusiasts at airtrek-turbo.ru and scheduled for public release 1 year after
 	</notes>
@@ -59,7 +59,6 @@
 	<scaling name="msec" units="units" toexpr="x*4" frexpr="x/4" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="O2 Trim" units="%" toexpr="(x-128)/5" frexpr="(x*5)+128" format="%.1f" min="-25.6" max="25.4" inc="0.2" storagetype="uint8" endian="big"/>
 	<scaling name="Percent (128)" units="%" toexpr="x/1.28" frexpr="x*1.28" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
-	<scaling name="Percent128shz8" units="%" toexpr="(x-128)/1.28" frexpr="x*1.28+128" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="Percent (256)" units="Trim %" toexpr="x/2.55" frexpr="x*2.55" format="%.0f" min="0" max="100" inc="0.39" storagetype="uint8" endian="big"/>
 	<scaling name="Percent16 (256)" units="%" toexpr="x/2.55" frexpr="x*2.55" format="%.0f" min="0" max="100" inc="1" storagetype="uint16" endian="big"/>
 	<scaling name="RPM" units="RPM" toexpr="x*1000/256" frexpr="x*256/1000" format="%.0f" min="0" max="11000" inc="50" storagetype="uint16" endian="big"/>
@@ -107,19 +106,6 @@
 		<table name="RPM" address="8120" type="Y Axis" elements="15" scaling="RPM"/>
 	</table>
 
-<table name="Warmup 1 fuel base when coolant not range" category="Warmup" address="2dca" type="2D" scaling="Percent128shz8">
-		<table name="Engine Temp" address="8248" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-	
-<table name="Warmup 2 fuel base" category="Warmup" address="46bc" type="2D" scaling="Percent128shz8">
-		<table name="Engine Temp" address="8248" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>	
-	
-	
-	
-	
-	
-	
 	<table name="Open Loop Enable Below Load" category="Fuel" address="2d2a" type="2D" scaling="Load8">
 		<table name="RPM" address="7ed8" type="Y Axis" elements="16" scaling="RPM"/>
 	</table>
@@ -230,7 +216,7 @@
 		<table name="Load" address="8058" type="Y Axis" elements="21" scaling="uint16"/>
 	</table>
 
-	<table name="MAF Smoothing Table" category="Fuel" address="2a2e" type="2D" level="3" scaling="Percent (128)">
+	<table name="MAF Smoothing Table" category="Fuel" address="2a2e" type="2D" level="3" scaling="AirFlow8">
 		<table name="Load" address="8058" type="Y Axis" elements="21" scaling="uint16"/>
 	</table>
 
